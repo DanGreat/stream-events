@@ -33,7 +33,7 @@
           <p>Select a Channel</p>
         </div>
 
-        <div class="events animate__animated animate__fadeIn" *ngFor="let event of filteredEvents;">
+        <div class="events animate__animated animate__fadeIn" *ngFor="let event of sortByStartTime(filteredEvents);">
           <h4>
             {{ event?.name }}
           </h4>
@@ -48,6 +48,10 @@
               {{ event?.end | date:'MMM d, y, h:mm a'}}
             </p>
           </div>
+
+          <p>
+            <span class="tag" *ngFor="let tag of event?.tags">{{ tag | titlecase}}</span>
+          </p>
         </div>
       </div>
 

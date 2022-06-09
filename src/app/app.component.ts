@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { EventsService } from './services/events.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit{
   
@@ -22,7 +22,7 @@ export class AppComponent implements OnInit{
     this.getChannelIdsAndEvents()
   }
 
-  getChannelIdsAndEvents() {
+  getChannelIdsAndEvents(): void {
     this.isLoading = !this.isLoading
 
     this.eventService.getChannelIdsAndEvents().subscribe({
@@ -35,7 +35,7 @@ export class AppComponent implements OnInit{
     })
   }
 
-  getChannelEvents(channelId: number) {
+  getChannelEvents(channelId: number): void {
     this.activeChannelId = channelId
     this.filteredEvents = []
 
@@ -44,5 +44,9 @@ export class AppComponent implements OnInit{
         this.filteredEvents.push(event)
       }
     });
+  }
+
+  sortByStartTime(filteredEvents: any[]): Array<any> {
+    return filteredEvents.sort((a: any, b: any) => (new Date(a.start).getTime() - new Date(b.start).getTime()))
   }
 }
