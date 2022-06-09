@@ -1,0 +1,116 @@
+.background {
+    height: 100vh;
+    padding: 4em;
+    background-image: url(../assets/images/sport-bg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden;
+
+    .event-container {
+        backdrop-filter: blur(11px) saturate(13%);
+        -webkit-backdrop-filter: blur(11px) saturate(13%);
+        background-color: rgba(255, 255, 255, 0.11);
+        border: 1px solid rgba(209, 213, 219, 0.3);
+        border-left: 30px solid rgb(0, 17, 255);
+        height: calc(100vh - 8em);
+        border-radius: 11px;
+        padding: 2em;
+
+        .event-channel-container {
+            display: flex;
+            height: 92%;
+
+            .loading{
+                display: grid;
+                place-items: center;
+                width: 90%;
+                height: 80%;
+                position: absolute;
+
+                .spinner-border {
+                    width: 90px;
+                    height: 90px;
+                }
+            }
+
+            .channels-list {
+                overflow-y: scroll;
+                height: 100%;
+                flex-grow: 1;
+                padding-top: 5em;
+                display: grid;
+                place-items: center;
+    
+                .channel {
+                    border: 1px solid #fff;
+                    color: #fff;
+                    border-radius: 7px;
+                    width: 7.5em;
+                    height: 5em;
+                    margin-bottom: 1em;
+                    transition: all .3s ease-out;
+                    display: grid;
+                    place-items: center;
+                }
+            }
+    
+            .events-list {
+                overflow-y: scroll;
+                height: 100%;
+                flex-grow: 3;
+                padding: 4em 0 0 4em;
+    
+                .events {
+                    background: #ffffff9c;
+                    border-radius: 7px;
+                    text-align: center;
+                    margin-bottom: 1.8em;
+                    padding: 1em;
+
+                    .timing {
+                        display: flex;
+                        justify-content: space-evenly;
+                        margin-top: 1em;
+                        font-size: 1em;
+
+                        .start{
+                            color: green;
+                        }
+
+                        .end {
+                            color: orangered;
+                        }
+                    }
+
+                }
+
+                .no-events {
+                    display: grid;
+                    place-items: center;
+
+                    i{
+                        font-size: 11em;
+                        color: #bababa;
+                    }
+
+                    p {
+                        font-size: 2em;
+                        color: #fff;
+                        margin-top: -1em;
+                        text-shadow: 2px 2px 2px #535151;
+                    }
+                }
+            }
+        }
+
+
+    }
+}
+
+.active {
+    width: 200px !important;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
